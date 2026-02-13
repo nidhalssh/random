@@ -137,3 +137,36 @@ display: inline-block;
     background-color: rgba(255,240,240,0.5);
     border-radius: 12px;
 }
+
+#prank-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in;
+}
+
+#prank-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Fancy Shake Animation */
+#prank-overlay img {
+    width: 80%;
+    animation: shake 0.1s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    50% { transform: translate(-3px, -2px) rotate(-1deg); }
+    100% { transform: translate(3px, 2px) rotate(1deg); }
+}
+
+.hidden { display: none !important; }
