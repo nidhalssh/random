@@ -70,3 +70,22 @@ yesBtn.addEventListener("click", () => {
 
     finalText.style.display = "block";
 });
+
+const trigger = document.getElementById('scary-button');
+const overlay = document.getElementById('prank-overlay');
+
+trigger.addEventListener('click', () => {
+    // 1. Show the overlay
+    overlay.classList.remove('hidden');
+    overlay.classList.add('visible');
+
+    // 2. Hide it automatically after 2 seconds
+    setTimeout(() => {
+        overlay.classList.remove('visible');
+        
+        // Wait for the fade-out transition to finish before hiding completely
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+        }, 200); 
+    }, 2000);
+});
